@@ -1,1 +1,7 @@
 /.idea/
+/*/.idea/
+/*/.mvn/
+/*/target/
+/*/mvnw
+/*/mvnw.cmd
+/*/mycoolapp.iml
