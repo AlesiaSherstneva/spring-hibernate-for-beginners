@@ -14,7 +14,8 @@ public class DemoController {
     // use @Qualifier for choosing a coach implementation
 
     @Autowired
-    public DemoController(@Qualifier("tennisCoach") Coach theCoach) {
+    public DemoController(@Qualifier("cricketCoach") Coach theCoach) {
+        System.out.println("In constructor: " + getClass().getSimpleName());
         this.myCoach = theCoach;
     }
 
