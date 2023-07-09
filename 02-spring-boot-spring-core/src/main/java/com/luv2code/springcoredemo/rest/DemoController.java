@@ -2,6 +2,7 @@ package com.luv2code.springcoredemo.rest;
 
 import com.luv2code.util.Coach;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,10 +12,10 @@ public class DemoController {
 
     // constructor dependency injection
 
-/*    @Autowired
-    public DemoController(Coach theCoach) {
+    @Autowired
+    public DemoController(@Qualifier("tennisCoach") Coach theCoach) {
         this.myCoach = theCoach;
-    }*/
+    }
 
     // setter dependency injection
 
@@ -25,10 +26,10 @@ public class DemoController {
 
     // we can give any name for the setter
 
-    @Autowired
+/*    @Autowired
     public void doSomeStuff(Coach theCoach) {
         myCoach = theCoach;
-    }
+    }*/
 
     @GetMapping("/dailyworkout")
     public String getDailyWorkout() {
