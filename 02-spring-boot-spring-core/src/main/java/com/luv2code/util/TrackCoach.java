@@ -1,10 +1,9 @@
 package com.luv2code.util;
 
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary
+/*@Primary*/
 public class TrackCoach implements Coach {
     @Override
     public String getDailyWorkout() {
