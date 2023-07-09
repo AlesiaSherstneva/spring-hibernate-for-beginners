@@ -9,9 +9,18 @@ import org.springframework.web.bind.annotation.RestController;
 public class DemoController {
     private Coach myCoach;
 
-    @Autowired
+    /* constructor dependency injection */
+
+/*    @Autowired
     public DemoController(Coach theCoach) {
         this.myCoach = theCoach;
+    }*/
+
+    /* setter dependency injection */
+
+    @Autowired
+    public void setCoach(Coach theCoach) {
+        myCoach = theCoach;
     }
 
     @GetMapping("/dailyworkout")
