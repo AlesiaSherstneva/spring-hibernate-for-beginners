@@ -24,7 +24,14 @@ public class DemoController {
 
     // use bean from the configuration
 
-    public DemoController(@Qualifier("swimCoach") Coach theCoach) {
+/*    public DemoController(@Qualifier("swimCoach") Coach theCoach) {
+        System.out.println("In constructor: " + getClass().getSimpleName());
+        myCoach = theCoach;
+    }*/
+
+    // use bean from the configuration with custom bean id
+
+    public DemoController(@Qualifier("aquatic") Coach theCoach) {
         System.out.println("In constructor: " + getClass().getSimpleName());
         myCoach = theCoach;
     }
