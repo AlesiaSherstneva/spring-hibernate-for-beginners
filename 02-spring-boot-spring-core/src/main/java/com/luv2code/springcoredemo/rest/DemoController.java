@@ -14,12 +14,19 @@ public class DemoController {
     // constructor dependency injection
     // use @Qualifier for choosing a coach implementation
 
-    @Autowired
+/*    @Autowired
     public DemoController(@Qualifier("cricketCoach") Coach theCoach,
                           @Qualifier("cricketCoach") Coach theAnotherCoach) {
         System.out.println("In constructor: " + getClass().getSimpleName());
         myCoach = theCoach;
         anotherCoach = theAnotherCoach;
+    }*/
+
+    // use bean from the configuration
+
+    public DemoController(@Qualifier("swimCoach") Coach theCoach) {
+        System.out.println("In constructor: " + getClass().getSimpleName());
+        myCoach = theCoach;
     }
 
     // we can use @Primary annotation to choose coach implementation by default
