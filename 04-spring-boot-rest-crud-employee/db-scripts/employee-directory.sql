@@ -19,12 +19,12 @@ CREATE TABLE `employee` (
 -- Data for table `employee`
 --
 
-INSERT INTO `employee` VALUES 
-	(1,'Leslie','Andrews','leslie@luv2code.com'),
-	(2,'Emma','Baumgarten','emma@luv2code.com'),
-	(3,'Avani','Gupta','avani@luv2code.com'),
-	(4,'Yuri','Petrov','yuri@luv2code.com'),
-	(5,'Juan','Vega','juan@luv2code.com');
+INSERT INTO `employee`
+VALUES (1,'Leslie','Andrews','leslie@luv2code.com'),
+       (2,'Emma','Baumgarten','emma@luv2code.com'),
+       (3,'Avani','Gupta','avani@luv2code.com'),
+       (4,'Yuri','Petrov','yuri@luv2code.com'),
+	    (5,'Juan','Vega','juan@luv2code.com');
 
 DROP TABLE IF EXISTS `authorities`;
 DROP TABLE IF EXISTS `users`;
@@ -35,7 +35,7 @@ DROP TABLE IF EXISTS `users`;
 
 CREATE TABLE `users` (
     `username` varchar(50) NOT NULL,
-    `password` varchar(50) NOT NULL,
+    `password` char(68) NOT NULL,
     `enabled` tinyint NOT NULL,
     PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -43,12 +43,17 @@ CREATE TABLE `users` (
 --
 -- Inserting data for table `users`
 --
+-- NOTE: The passwords are encrypted using BCrypt
+--
+-- A generation tool is avail at: https://www.luv2code.com/generate-bcrypt-password
+--
+-- Default passwords here are: fun123
+--
 
 INSERT INTO `users`
-VALUES
-    ('john','{noop}test123',1),
-    ('mary','{noop}test123',1),
-    ('susan','{noop}test123',1);
+VALUES ('john','{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q',1),
+       ('mary','{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q',1),
+       ('susan','{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q',1);
 
 
 --
@@ -58,8 +63,8 @@ VALUES
 CREATE TABLE `authorities` (
     `username` varchar(50) NOT NULL,
     `authority` varchar(50) NOT NULL,
-    UNIQUE KEY `authorities_idx_1` (`username`,`authority`),
-    CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
+    UNIQUE KEY `authorities4_idx_1` (`username`,`authority`),
+    CONSTRAINT `authorities4_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -67,10 +72,9 @@ CREATE TABLE `authorities` (
 --
 
 INSERT INTO `authorities`
-VALUES
-    ('john','ROLE_EMPLOYEE'),
-    ('mary','ROLE_EMPLOYEE'),
-    ('mary','ROLE_MANAGER'),
-    ('susan','ROLE_EMPLOYEE'),
-    ('susan','ROLE_MANAGER'),
-    ('susan','ROLE_ADMIN');
+VALUES ('john','ROLE_EMPLOYEE'),
+       ('mary','ROLE_EMPLOYEE'),
+       ('mary','ROLE_MANAGER'),
+       ('susan','ROLE_EMPLOYEE'),
+       ('susan','ROLE_MANAGER'),
+       ('susan','ROLE_ADMIN');
