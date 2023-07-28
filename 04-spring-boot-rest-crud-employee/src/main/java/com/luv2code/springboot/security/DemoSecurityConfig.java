@@ -18,7 +18,15 @@ import javax.sql.DataSource;
 public class DemoSecurityConfig {
     @Bean
     public UserDetailsManager userDetailsManager(DataSource dataSource) {
-        return new JdbcUserDetailsManager(dataSource);
+        JdbcUserDetailsManager userDetailsManager = new JdbcUserDetailsManager(dataSource);
+
+        userDetailsManager.setUsersByUsernameQuery(
+                "SELECT user_id, pw, active FROM members WHERE user_id = ?");
+
+        userDetailsManager.setAuthoritiesByUsernameQuery(
+                "SELECT user_id, role FROM roles WHERE user_id = ?");
+
+        return userDetailsManager;
     }
 
     @Bean
@@ -28,7 +36,7 @@ public class DemoSecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/api/employees/**").hasRole("EMPLOYEE")
                 .requestMatchers(HttpMethod.POST, "/api/employees").hasRole("MANAGER")
                 .requestMatchers(HttpMethod.PUT, "/api/employees").hasRole("MANAGER")
-                .requestMatchers(HttpMethod.DELETE, "/api/employees").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/api/employees/**").hasRole("ADMIN")
         );
 
         http.httpBasic(Customizer.withDefaults());
