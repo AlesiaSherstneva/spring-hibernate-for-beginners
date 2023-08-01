@@ -1,5 +1,7 @@
 package com.luv2code.springmvc;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,5 +9,8 @@ import lombok.Setter;
 @Setter
 public class Customer {
     private String firstName;
+
+    @NotNull(message = "is required")
+    @Size(message = "is required")
     private String lastName;
 }
