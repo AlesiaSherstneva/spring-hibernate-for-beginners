@@ -1,6 +1,6 @@
 # Spring BOOT - CRUD App
 
-В третьей части курса (занятия №61-88) рассмотрены следующие темы:
+В третьей части курса (занятия №60-87) рассмотрены следующие темы:
 - CommandLineRunner bean;
 - database connection;
 - turning off the Spring Boot banner;
