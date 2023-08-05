@@ -7,7 +7,7 @@
 
 В это же приложение добавили Spring Security.
 
-Были покрыты следующие темы:
+Рассмотрены следующие темы:
 - DAO and service layers;
 - Spring Data Jpa;
 - Optional<>;
