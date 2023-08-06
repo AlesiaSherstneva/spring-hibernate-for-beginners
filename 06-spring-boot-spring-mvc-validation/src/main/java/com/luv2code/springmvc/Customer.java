@@ -1,9 +1,6 @@
 package com.luv2code.springmvc;
 
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,4 +16,7 @@ public class Customer {
     @Min(value = 0, message = "must be greater than or equals to zero")
     @Max(value = 10, message = "must be less than or equals to ten")
     private int freePasses;
+
+    @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only five chars/digits")
+    private String postalCode;
 }
