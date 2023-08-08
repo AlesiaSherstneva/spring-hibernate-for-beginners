@@ -20,6 +20,6 @@ public class EmployeeController {
     @GetMapping("/list")
     public String listEmployees(Model theModel) {
         theModel.addAttribute("employees", employeeService.findAll());
-        return "list-employees";
+        return "employees/list-employees";
     }
 }
