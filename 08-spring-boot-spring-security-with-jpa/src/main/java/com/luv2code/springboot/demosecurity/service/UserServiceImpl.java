@@ -16,10 +16,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
-
-	private UserDao userDao;
-
-	private RoleDao roleDao;
+	private final UserDao userDao;
+	private final RoleDao roleDao;
 
 	@Autowired
 	public UserServiceImpl(UserDao userDao, RoleDao roleDao) {
@@ -29,7 +27,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User findByUserName(String userName) {
-		// check the database if the user already exists
 		return userDao.findByUserName(userName);
 	}
 

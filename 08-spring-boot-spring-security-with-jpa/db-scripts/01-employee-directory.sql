@@ -25,4 +25,3 @@ INSERT INTO `employee` VALUES
 	(3,'Avani','Gupta','avani@luv2code.com'),
 	(4,'Yuri','Petrov','yuri@luv2code.com'),
 	(5,'Juan','Vega','juan@luv2code.com');
-
