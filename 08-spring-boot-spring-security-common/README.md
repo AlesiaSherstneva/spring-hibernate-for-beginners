@@ -1,4 +1,4 @@
-# Spring Boot - Spring MVC - Security
+# Spring Boot - Spring Security
 
 В восьмой части курса (занятия №198-239) рассмотрены следующие темы:
 - custom login form (simple and with Bootstrap);
