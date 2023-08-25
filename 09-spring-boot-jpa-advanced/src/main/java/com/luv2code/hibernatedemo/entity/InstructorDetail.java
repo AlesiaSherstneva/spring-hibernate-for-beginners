@@ -8,7 +8,6 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @ToString
 public class InstructorDetail {
     @Id
@@ -21,4 +20,9 @@ public class InstructorDetail {
 
     @Column(name = "hobby")
     private String hobby;
+
+    public InstructorDetail(String youtubeChannel, String hobby) {
+        this.youtubeChannel = youtubeChannel;
+        this.hobby = hobby;
+    }
 }
