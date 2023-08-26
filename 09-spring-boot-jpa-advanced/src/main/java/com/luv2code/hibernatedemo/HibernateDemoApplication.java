@@ -1,5 +1,8 @@
 package com.luv2code.hibernatedemo;
 
+import com.luv2code.hibernatedemo.dao.AppDAO;
+import com.luv2code.hibernatedemo.entity.Instructor;
+import com.luv2code.hibernatedemo.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,9 +15,21 @@ public class HibernateDemoApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(String[] args) {
+    public CommandLineRunner commandLineRunner(AppDAO appDAO) {
         return runner -> {
-            System.out.println("Hello world");
+            createInstructor(appDAO);
         };
+    }
+
+    private void createInstructor(AppDAO appDAO) {
+        Instructor tempInstructor = new Instructor(
+                "Chad", "Darby", "darby@luv2code.com");
+        InstructorDetail tempInstructorDetail = new InstructorDetail(
+                "http://www.luv2code.com/youtube", "Luv 2 code!!!");
+        tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+        System.out.println("Saving instructor: " + tempInstructor);
+        appDAO.save(tempInstructor);
+        System.out.println("Done!");
     }
 }
