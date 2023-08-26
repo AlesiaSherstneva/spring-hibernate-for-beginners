@@ -22,10 +22,16 @@ public class HibernateDemoApplication {
     }
 
     private void createInstructor(AppDAO appDAO) {
-        Instructor tempInstructor = new Instructor(
+/*        Instructor tempInstructor = new Instructor(
                 "Chad", "Darby", "darby@luv2code.com");
         InstructorDetail tempInstructorDetail = new InstructorDetail(
                 "http://www.luv2code.com/youtube", "Luv 2 code!!!");
+        tempInstructor.setInstructorDetail(tempInstructorDetail);*/
+
+        Instructor tempInstructor = new Instructor(
+                "Madhu", "Patel", "madhu@luv2code.com");
+        InstructorDetail tempInstructorDetail = new InstructorDetail(
+                "http://www.luv2code.com/youtube", "Guitar");
         tempInstructor.setInstructorDetail(tempInstructorDetail);
 
         System.out.println("Saving instructor: " + tempInstructor);
