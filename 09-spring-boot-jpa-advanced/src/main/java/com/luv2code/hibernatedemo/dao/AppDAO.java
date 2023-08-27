@@ -1,6 +1,7 @@
 package com.luv2code.hibernatedemo.dao;
 
 import com.luv2code.hibernatedemo.entity.Instructor;
+import com.luv2code.hibernatedemo.entity.InstructorDetail;
 
 public interface AppDAO {
     void save(Instructor theInstructor);
@@ -8,4 +9,6 @@ public interface AppDAO {
     Instructor findInstructorById(int theId);
 
     void deleteInstructorById(int theId);
+
+    InstructorDetail findInstructorDetailById(int theId);
 }

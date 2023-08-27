@@ -1,6 +1,7 @@
 package com.luv2code.hibernatedemo.dao;
 
 import com.luv2code.hibernatedemo.entity.Instructor;
+import com.luv2code.hibernatedemo.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -27,5 +28,10 @@ public class AppDAOImpl implements AppDAO {
     public void deleteInstructorById(int theId) {
         Instructor tempInstructor = entityManager.find(Instructor.class, theId);
         entityManager.remove(tempInstructor);
+    }
+
+    @Override
+    public InstructorDetail findInstructorDetailById(int theId) {
+        return entityManager.find(InstructorDetail.class, theId);
     }
 }
