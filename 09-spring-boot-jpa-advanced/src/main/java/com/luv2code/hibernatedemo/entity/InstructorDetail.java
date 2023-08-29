@@ -8,7 +8,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(exclude= "instructor")
+@ToString(exclude = "instructor")
 public class InstructorDetail {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +21,9 @@ public class InstructorDetail {
     @Column(name = "hobby")
     private String hobby;
 
-    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "instructorDetail",
+            cascade = {CascadeType.MERGE, CascadeType.PERSIST,
+                    CascadeType.DETACH, CascadeType.REFRESH})
     private Instructor instructor;
 
     public InstructorDetail(String youtubeChannel, String hobby) {

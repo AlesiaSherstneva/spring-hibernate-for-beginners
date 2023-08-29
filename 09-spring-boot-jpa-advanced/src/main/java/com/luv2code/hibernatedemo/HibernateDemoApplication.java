@@ -21,14 +21,14 @@ public class HibernateDemoApplication {
             // findInstructor(appDAO);
             // deleteInstructor(appDAO);
             // findInstructorDetail(appDAO);
-            deleteInstructorDetail(appDAO);
+             deleteInstructorDetail(appDAO);
         };
     }
 
     private void deleteInstructorDetail(AppDAO appDAO) {
-        int theId = 2;
+        int theId = 3;
         System.out.println("Deleting instructor detail id: " + theId);
-        appDAO.deleteInstructorById(theId);
+        appDAO.deleteInstructorDetailById(theId);
         System.out.println("Done!");
     }
 
