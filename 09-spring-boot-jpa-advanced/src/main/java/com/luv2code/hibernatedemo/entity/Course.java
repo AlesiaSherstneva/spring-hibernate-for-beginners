@@ -21,5 +21,8 @@ public class Course {
     @Column(name = "title")
     private String title;
 
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST,
+            CascadeType.DETACH, CascadeType.REFRESH})
+    @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 }
