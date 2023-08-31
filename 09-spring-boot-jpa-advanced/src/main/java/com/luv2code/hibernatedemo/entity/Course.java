@@ -25,4 +25,8 @@ public class Course {
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
+
+    public Course(String title) {
+        this.title = title;
+    }
 }
