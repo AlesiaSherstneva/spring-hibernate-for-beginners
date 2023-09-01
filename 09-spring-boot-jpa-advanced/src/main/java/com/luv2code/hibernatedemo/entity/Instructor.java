@@ -32,7 +32,7 @@ public class Instructor {
     private InstructorDetail instructorDetail;
 
     @OneToMany(mappedBy = "instructor", cascade = {CascadeType.DETACH, CascadeType.PERSIST,
-            CascadeType.DETACH, CascadeType.REFRESH})
+            CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.EAGER)
     private List<Course> courses;
 
     public Instructor(String firstName, String lastName, String email) {
