@@ -24,8 +24,19 @@ public class HibernateDemoApplication {
             // deleteInstructor(appDAO);
             // findInstructorDetail(appDAO);
             // deleteInstructorDetail(appDAO);
-            createInstructorWithCourses(appDAO);
+            // createInstructorWithCourses(appDAO);
+            findInstructorWithCourses(appDAO);
         };
+    }
+
+    private void findInstructorWithCourses(AppDAO appDAO) {
+        int theId = 1;
+        System.out.println("Finding instructor id: " + theId);
+
+        Instructor tempInstructor = appDAO.findInstructorById(theId);
+        System.out.println("tempInstructor: " + tempInstructor);
+        System.out.println("the associated courses: " + tempInstructor.getCourses());
+        System.out.println("Done!");
     }
 
     private void createInstructorWithCourses(AppDAO appDAO) {
@@ -73,7 +84,7 @@ public class HibernateDemoApplication {
 
     private void findInstructor(AppDAO appDAO) {
         int theId = 1;
-        System.out.println("Finding instructor is: " + theId);
+        System.out.println("Finding instructor id: " + theId);
 
         Instructor theInstructor = appDAO.findInstructorById(theId);
         System.out.println("tempInstructor: " + theInstructor);
