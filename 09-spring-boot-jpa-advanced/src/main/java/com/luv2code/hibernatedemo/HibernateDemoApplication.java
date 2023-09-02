@@ -23,7 +23,7 @@ public class HibernateDemoApplication {
         return runner -> {
             // createInstructor(appDAO);
             // findInstructor(appDAO);
-            // deleteInstructor(appDAO);
+            deleteInstructor(appDAO);
             // findInstructorDetail(appDAO);
             // deleteInstructorDetail(appDAO);
             // createInstructorWithCourses(appDAO);
@@ -31,7 +31,7 @@ public class HibernateDemoApplication {
             // findCoursesForInstructor(appDAO);
             // findInstructorWithCoursesJoinFetch(appDAO);
             // updateInstructor(appDAO);
-            updateCourse(appDAO);
+            // updateCourse(appDAO);
         };
     }
 
