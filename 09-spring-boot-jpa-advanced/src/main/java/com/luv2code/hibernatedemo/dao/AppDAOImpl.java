@@ -48,6 +48,7 @@ public class AppDAOImpl implements AppDAO {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Course> findCoursesByInstructorId(int theId) {
         TypedQuery<Course> query = entityManager.createQuery
                 ("from Course where instructor.id = :data", Course.class);
@@ -57,6 +58,7 @@ public class AppDAOImpl implements AppDAO {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Instructor findInstructorByIdJoinFetch(int theId) {
         TypedQuery<Instructor> query = entityManager.createQuery
                 ("SELECT i FROM Instructor i JOIN FETCH i.instructorDetail JOIN FETCH i.courses" +
@@ -64,5 +66,10 @@ public class AppDAOImpl implements AppDAO {
         query.setParameter("data", theId);
 
         return query.getSingleResult();
+    }
+
+    @Override
+    public void update(Instructor tempInstructor) {
+        entityManager.merge(tempInstructor);
     }
 }
