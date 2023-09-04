@@ -29,6 +29,8 @@ public class Course {
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "course_id")
     private List<Review> reviews;
 
     public void add(Review theReview) {
