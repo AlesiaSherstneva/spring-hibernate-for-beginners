@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,6 +30,13 @@ public class Course {
     private Instructor instructor;
 
     private List<Review> reviews;
+
+    public void add(Review theReview) {
+        if (reviews == null) {
+            reviews = new ArrayList<>();
+        }
+        reviews.add(theReview);
+    }
 
     public Course(String title) {
         this.title = title;
