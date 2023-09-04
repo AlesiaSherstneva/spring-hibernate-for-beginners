@@ -6,12 +6,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
+
 @Entity
 @Table(name = "course")
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString(exclude = "instructor")
+@ToString(exclude = {"instructor", "reviews"})
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +27,8 @@ public class Course {
             CascadeType.DETACH, CascadeType.REFRESH})
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
+
+    private List<Review> reviews;
 
     public Course(String title) {
         this.title = title;
