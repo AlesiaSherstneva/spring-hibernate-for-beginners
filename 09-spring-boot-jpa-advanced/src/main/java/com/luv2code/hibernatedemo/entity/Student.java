@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -47,6 +48,13 @@ public class Student {
             inverseJoinColumns = @JoinColumn(name = "course_id")
     )
     private List<Course> courses;
+
+    public void addCourse(Course theCourse) {
+        if (courses == null) {
+            courses = new ArrayList<>();
+        }
+        courses.add(theCourse);
+    }
 
     public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
