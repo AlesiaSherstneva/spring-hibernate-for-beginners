@@ -42,11 +42,18 @@ public class Course {
     )
     private List<Student> students;
 
-    public void add(Review theReview) {
+    public void addReview(Review theReview) {
         if (reviews == null) {
             reviews = new ArrayList<>();
         }
         reviews.add(theReview);
+    }
+
+    public void addStudent(Student theStudent) {
+        if (students == null) {
+            students = new ArrayList<>();
+        }
+        students.add(theStudent);
     }
 
     public Course(String title) {

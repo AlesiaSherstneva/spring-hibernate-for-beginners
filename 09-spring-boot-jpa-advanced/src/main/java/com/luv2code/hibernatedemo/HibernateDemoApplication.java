@@ -60,9 +60,9 @@ public class HibernateDemoApplication {
     private void createCourseAndReviews(AppDAO appDAO) {
         Course tempCourse = new Course("Pacman - How To Score One Million Points");
 
-        tempCourse.add(new Review("Great course... loved it!"));
-        tempCourse.add(new Review("Cool course, job well done."));
-        tempCourse.add(new Review("What a dumb course, you are an idiot!"));
+        tempCourse.addReview(new Review("Great course... loved it!"));
+        tempCourse.addReview(new Review("Cool course, job well done."));
+        tempCourse.addReview(new Review("What a dumb course, you are an idiot!"));
 
         System.out.println("Saving the course");
         System.out.println(tempCourse);
