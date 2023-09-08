@@ -24,7 +24,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "courses")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

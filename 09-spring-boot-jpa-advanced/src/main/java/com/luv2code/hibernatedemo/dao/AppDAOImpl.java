@@ -33,7 +33,7 @@ public class AppDAOImpl implements AppDAO {
         Instructor tempInstructor = entityManager.find(Instructor.class, theId);
 
         List<Course> courses = tempInstructor.getCourses();
-        for (Course course: courses) {
+        for (Course course : courses) {
             course.setInstructor(null);
         }
 
@@ -102,9 +102,20 @@ public class AppDAOImpl implements AppDAO {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Course findCourseAndReviewsByCourseId(int theId) {
         TypedQuery<Course> query = entityManager.createQuery
                 ("SELECT c FROM Course c JOIN FETCH c.reviews WHERE c.id = :data", Course.class);
+        query.setParameter("data", theId);
+
+        return query.getSingleResult();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Course findCourseAndStudentsByCourseId(int theId) {
+        TypedQuery<Course> query = entityManager.createQuery
+                ("SELECT c FROM Course c JOIN FETCH c.students WHERE c.id = :data", Course.class);
         query.setParameter("data", theId);
 
         return query.getSingleResult();
