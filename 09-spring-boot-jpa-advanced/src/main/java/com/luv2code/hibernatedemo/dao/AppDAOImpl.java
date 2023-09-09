@@ -3,6 +3,7 @@ package com.luv2code.hibernatedemo.dao;
 import com.luv2code.hibernatedemo.entity.Course;
 import com.luv2code.hibernatedemo.entity.Instructor;
 import com.luv2code.hibernatedemo.entity.InstructorDetail;
+import com.luv2code.hibernatedemo.entity.Student;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
@@ -116,6 +117,15 @@ public class AppDAOImpl implements AppDAO {
     public Course findCourseAndStudentsByCourseId(int theId) {
         TypedQuery<Course> query = entityManager.createQuery
                 ("SELECT c FROM Course c JOIN FETCH c.students WHERE c.id = :data", Course.class);
+        query.setParameter("data", theId);
+
+        return query.getSingleResult();
+    }
+
+    @Override
+    public Student findStudentAndCoursesByStudentId(int theId) {
+        TypedQuery<Student> query = entityManager.createQuery
+                ("SELECT s FROM Student s JOIN FETCH s.courses WHERE s.id = :data", Student.class);
         query.setParameter("data", theId);
 
         return query.getSingleResult();
