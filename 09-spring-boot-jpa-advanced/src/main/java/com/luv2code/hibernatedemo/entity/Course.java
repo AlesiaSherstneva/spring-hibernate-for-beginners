@@ -25,7 +25,7 @@ public class Course {
     private String title;
 
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.PERSIST,
-            CascadeType.DETACH, CascadeType.REFRESH})
+            CascadeType.MERGE, CascadeType.REFRESH})
     @JoinColumn(name = "instructor_id")
     private Instructor instructor;
 
@@ -34,7 +34,7 @@ public class Course {
     private List<Review> reviews;
 
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.PERSIST,
-            CascadeType.DETACH, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+            CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     @JoinTable(
             name = "course_student",
             joinColumns = @JoinColumn(name = "course_id"),
