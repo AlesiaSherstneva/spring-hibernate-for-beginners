@@ -1,4 +1,4 @@
-package com.luv2code;
+package com.luv2code.aopdemo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
