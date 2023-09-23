@@ -19,7 +19,8 @@ public class AopDemoApplication {
     }
 
     private void demoTheBeforeAdvice(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
-        theAccountDAO.addAccount();
+        Account theAccount = new Account();
+        theAccountDAO.addAccount(theAccount);
         theMembershipDAO.addSillyMember();
     }
 }
