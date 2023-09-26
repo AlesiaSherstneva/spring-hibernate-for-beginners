@@ -12,6 +12,14 @@ public class MyDemoLoggingAspect {
     private void forDaoPackage() {
     }
 
+    @Pointcut("execution(* com.luv2code.aopdemo.dao.*.get*(..))")
+    private void getter() {
+    }
+
+    @Pointcut("execution(* com.luv2code.aopdemo.dao.*.set*(..))")
+    private void setter() {
+    }
+
     @Before("forDaoPackage()")
     public void beforeAddAccountAdvice() {
         System.out.println("\n=====> Executing @Before advice on method");
