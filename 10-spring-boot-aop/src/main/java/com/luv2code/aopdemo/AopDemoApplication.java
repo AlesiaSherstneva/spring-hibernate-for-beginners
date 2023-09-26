@@ -23,6 +23,12 @@ public class AopDemoApplication {
         theAccountDAO.addAccount(theAccount, true);
         theAccountDAO.doWork();
 
+        theAccountDAO.setName("foobar");
+        theAccountDAO.setServiceCode("silver");
+
+        String name = theAccountDAO.getName();
+        String serviceCode = theAccountDAO.getServiceCode();
+
         theMembershipDAO.addSillyMember();
         theMembershipDAO.goToSleep();
     }
