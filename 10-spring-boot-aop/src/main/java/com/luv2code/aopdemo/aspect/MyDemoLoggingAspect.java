@@ -20,12 +20,19 @@ public class MyDemoLoggingAspect {
     private void setter() {
     }
 
-    @Before("forDaoPackage()")
+    @Pointcut("forDaoPackage() && !(getter() || setter())")
+    private void forDaoPackageNoGetterSetter() {
+
+    }
+
+    // @Before("forDaoPackage()")
+    @Before("forDaoPackageNoGetterSetter()")
     public void beforeAddAccountAdvice() {
         System.out.println("\n=====> Executing @Before advice on method");
     }
 
-    @Before("forDaoPackage()")
+    // @Before("forDaoPackage()")
+    @Before("forDaoPackageNoGetterSetter()")
     public void performApiAnalytics() {
         System.out.println("\n=====> Performing API analytics");
     }
