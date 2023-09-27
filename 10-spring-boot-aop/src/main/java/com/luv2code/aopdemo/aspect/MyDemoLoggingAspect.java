@@ -37,6 +37,11 @@ public class MyDemoLoggingAspect {
         System.out.println("\n=====> Performing API analytics");
     }
 
+    @Before("forDaoPackageNoGetterSetter()")
+    public void logToCloudAsync() {
+        System.out.println("\n=====> Logging to Cloud in async fashion");
+    }
+
     // @Before("execution(public void addAccount())")
     // @Before("execution(public void com.luv2code.aopdemo.dao.AccountDAO.addAccount())")
     // @Before("execution(public void add*())")
