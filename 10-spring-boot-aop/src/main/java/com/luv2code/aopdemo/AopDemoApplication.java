@@ -11,14 +11,31 @@ import java.util.List;
 
 @SpringBootApplication
 public class AopDemoApplication {
-    public static void main(String[] args) {SpringApplication.run(AopDemoApplication.class, args);}
+    public static void main(String[] args) {
+        SpringApplication.run(AopDemoApplication.class, args);
+    }
 
     @Bean
     public CommandLineRunner commandLineRunner(AccountDAO theAccountDAO, MembershipDAO theMembershipDAO) {
         return runner -> {
             // demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
-            demoTheAfterReturningAdvice(theAccountDAO);
+            // demoTheAfterReturningAdvice(theAccountDAO);
+            demoTheAfterThrowingAdvice(theAccountDAO);
         };
+    }
+
+    private void demoTheAfterThrowingAdvice(AccountDAO theAccountDAO) {
+        List<Account> theAccounts = null;
+        try {
+            theAccounts = theAccountDAO.findAccounts();
+        } catch (Exception exception) {
+            System.out.println("\n\nMain Program: caught exception: " + exception);
+        }
+
+        System.out.println("\n\nMain Program: demoTheAfterThrowingAdvice");
+        System.out.println("-----------");
+
+        System.out.println(theAccounts + "\n");
     }
 
     private void demoTheAfterReturningAdvice(AccountDAO theAccountDAO) {
