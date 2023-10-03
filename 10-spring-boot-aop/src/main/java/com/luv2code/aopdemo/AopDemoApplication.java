@@ -27,7 +27,8 @@ public class AopDemoApplication {
     private void demoTheAfterThrowingAdvice(AccountDAO theAccountDAO) {
         List<Account> theAccounts = null;
         try {
-            theAccounts = theAccountDAO.findAccounts();
+            boolean tripWire = true;
+            theAccounts = theAccountDAO.findAccounts(tripWire);
         } catch (Exception exception) {
             System.out.println("\n\nMain Program: caught exception: " + exception);
         }
