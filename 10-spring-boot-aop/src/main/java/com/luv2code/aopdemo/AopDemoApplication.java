@@ -20,8 +20,14 @@ public class AopDemoApplication {
         return runner -> {
             // demoTheBeforeAdvice(theAccountDAO, theMembershipDAO);
             // demoTheAfterReturningAdvice(theAccountDAO);
-            demoTheAfterThrowingAdvice(theAccountDAO);
+            // demoTheAfterThrowingAdvice(theAccountDAO);
+            demoTheAfterAdvice(theAccountDAO);
         };
+    }
+
+    private void demoTheAfterAdvice(AccountDAO theAccountDAO) {
+        demoTheAfterThrowingAdvice(theAccountDAO);
+        demoTheAfterReturningAdvice(theAccountDAO);
     }
 
     private void demoTheAfterThrowingAdvice(AccountDAO theAccountDAO) {
