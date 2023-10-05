@@ -2,9 +2,11 @@ package com.luv2code.aopdemo.aspect;
 
 import com.luv2code.aopdemo.Account;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -17,6 +19,21 @@ import java.util.List;
 @Component
 @Order(2)
 public class MyDemoLoggingAspect {
+    @Around("execution(* com.luv2code.aopdemo.service.*.getFortune(..))")
+    public Object aroundGetFortune(ProceedingJoinPoint theProceedingJoinPoint) throws Throwable {
+        String method = theProceedingJoinPoint.getSignature().toShortString();
+        System.out.println("\n=====> Executing @Around on method: " + method);
+
+        long begin = System.currentTimeMillis();
+        Object result = theProceedingJoinPoint.proceed();
+        long end = System.currentTimeMillis();
+
+        long duration = end - begin;
+        System.out.println("\n=====> Duration: " + duration / 1000 + " seconds");
+
+        return result;
+    }
+
     @After("execution(* com.luv2code.aopdemo.dao.AccountDAO.findAccounts(..))")
     public void afterFinallyFindAccountsAdvice(JoinPoint theJoinPoint) {
         String method = theJoinPoint.getSignature().toShortString();
@@ -44,7 +61,7 @@ public class MyDemoLoggingAspect {
     }
 
     private void convertAccountNamesToUpperCase(List<Account> result) {
-        for (Account tempAccount: result) {
+        for (Account tempAccount : result) {
             String theUpperName = tempAccount.getName().toUpperCase();
             tempAccount.setName(theUpperName);
         }
