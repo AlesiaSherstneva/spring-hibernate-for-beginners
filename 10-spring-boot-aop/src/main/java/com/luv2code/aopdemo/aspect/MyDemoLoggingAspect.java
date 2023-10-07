@@ -25,7 +25,16 @@ public class MyDemoLoggingAspect {
         System.out.println("\n=====> Executing @Around on method: " + method);
 
         long begin = System.currentTimeMillis();
-        Object result = theProceedingJoinPoint.proceed();
+
+        Object result;
+        try {
+            result = theProceedingJoinPoint.proceed();
+        } catch (Exception exception) {
+            System.out.println(exception.getMessage());
+            result = "Major accident! But no worries, your private AOP helicopter is on the way!";
+        }
+
+
         long end = System.currentTimeMillis();
 
         long duration = end - begin;
