@@ -1,6 +1,6 @@
 # Spring Boot - JPA Advanced
 
-В девятой части курса (занятия №242-302) рассмотрены следующие темы:
+В девятой части курса (занятия №242-327) рассмотрены следующие темы:
 - Hibernate advanced mappings:
   - One-To-One (uni- and bi-directional);
   - One-To-Many (uni- and bi-directional);
