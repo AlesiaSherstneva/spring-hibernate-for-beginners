@@ -31,7 +31,8 @@ public class MyDemoLoggingAspect {
             result = theProceedingJoinPoint.proceed();
         } catch (Exception exception) {
             System.out.println(exception.getMessage());
-            result = "Major accident! But no worries, your private AOP helicopter is on the way!";
+            // result = "Major accident! But no worries, your private AOP helicopter is on the way!";
+            throw exception;
         }
 
 
