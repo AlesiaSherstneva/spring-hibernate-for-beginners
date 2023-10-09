@@ -22,4 +22,8 @@ public class DemoLoggingAspect {
     @Pointcut("execution(* com.luv2code.springmvc.dao.*.*(..))")
     private void forDaoPackage() {
     }
+
+    @Pointcut("forControllerPackage() || forServicePackage() || forDaoPackage()")
+    private void forAppFlow() {
+    }
 }
