@@ -41,4 +41,12 @@ public class DemoLoggingAspect {
         }
     }
 
+    @AfterReturning(
+            pointcut = "forAppFlow()",
+            returning = "theResult")
+    public void afterReturning(JoinPoint theJoinPoint, Object theResult) {
+        String theMethod = theJoinPoint.getSignature().toShortString();
+        logger.info("=====> in @AfterReturning: from method: " + theMethod);
+        logger.info("=====> result: " + theResult);
+    }
 }
