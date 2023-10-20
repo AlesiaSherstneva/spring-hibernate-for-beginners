@@ -1,6 +1,6 @@
 # Spring Boot - Spring Security
 
-В восьмой части курса (занятия №198-239) рассмотрены следующие темы:
+В восьмой части курса (занятия №223-266) рассмотрены следующие темы:
 - custom login form (simple and with Bootstrap);
 - login form error;
 - display the logout;

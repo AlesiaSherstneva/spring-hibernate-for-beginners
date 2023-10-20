@@ -1,6 +1,8 @@
 # Spring Boot - Spring MVC - Thymeleaf
 
-В первой половине шестой части курса (занятия №158-162) рассмотрены следующие темы:
+В первой половине шестой части курса (занятия №158-187) рассмотрены следующие темы:
 - MVC - Model View Controller;
-- thymeleaf html templates;
-- css styles.
+- html, css styles
+- thymeleaf templates;
+- @RequestMapping, @GetMapping, @PostMapping;
+- html-forms: input text, drop-down list, radio button, check boxes.

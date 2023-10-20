@@ -1,7 +1,6 @@
 # Spring Boot - Spring MVC - Validation
 
-Во второй половине шестой части курса (занятия №163-186) рассмотрены следующие темы:
-- Thymeleaf HTML-form;
+Во второй половине шестой части курса (занятия №188-211) рассмотрены следующие темы:
 - validation annotations (@NotNull, @Size, @Min, @Max, @Pattern);
 - @Valid @ModelAttribute, BindingResult;
 - @InitBinder, StringTrimmerEditor;
