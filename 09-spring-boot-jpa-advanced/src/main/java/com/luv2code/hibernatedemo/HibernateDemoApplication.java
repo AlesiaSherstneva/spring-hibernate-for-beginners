@@ -6,6 +6,7 @@ import com.luv2code.hibernatedemo.entity.Instructor;
 import com.luv2code.hibernatedemo.entity.InstructorDetail;
 import com.luv2code.hibernatedemo.entity.Review;
 import com.luv2code.hibernatedemo.entity.Student;
+import com.luv2code.hibernatedemo.entity.StudentInfo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -38,11 +39,11 @@ public class HibernateDemoApplication {
             // createCourseAndReviews(appDAO);
             // retrieveCourseAndReviews(appDAO);
             // deleteCourseAndReviews(appDAO);
-            // createCourseAndStudents(appDAO);
+            createCourseAndStudents(appDAO);
             // findCourseAndStudents(appDAO);
             // findStudentAndCourses(appDAO);
             // addMoreCoursesForStudent(appDAO);
-            deleteStudent(appDAO);
+            // deleteStudent(appDAO);
         };
     }
 
@@ -91,8 +92,8 @@ public class HibernateDemoApplication {
     private void createCourseAndStudents(AppDAO appDAO) {
         Course tempCourse = new Course("Pacman - How To Score One Million Points");
 
-        Student tempStudent1 = new Student("John", "Doe", "john@luv2code.com");
-        Student tempStudent2 = new Student("Mary", "Public", "mary@luv2code.com");
+        Student tempStudent1 = new Student(new StudentInfo("John", "Doe", "john@luv2code.com"));
+        Student tempStudent2 = new Student(new StudentInfo("Mary", "Public", "mary@luv2code.com"));
 
         tempCourse.addStudent(tempStudent1);
         tempCourse.addStudent(tempStudent2);

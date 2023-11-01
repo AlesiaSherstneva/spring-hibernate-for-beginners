@@ -1,7 +1,9 @@
 package com.luv2code.hibernatedemo.entity;
 
+import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -31,14 +33,10 @@ public class Student {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "first_name")
-    private String firstName;
-
-    @Column(name = "last_name")
-    private String lastName;
-
-    @Column(name = "email")
-    private String email;
+    @Embedded
+    @AttributeOverride(name = "firstName", column = @Column(name = "first_name"))
+    @AttributeOverride(name = "lastName", column = @Column(name = "last_name"))
+    private StudentInfo studentInfo;
 
     @ManyToMany(cascade = {CascadeType.DETACH, CascadeType.PERSIST,
             CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
@@ -56,9 +54,7 @@ public class Student {
         courses.add(theCourse);
     }
 
-    public Student(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+    public Student(StudentInfo studentInfo) {
+        this.studentInfo = studentInfo;
     }
 }
