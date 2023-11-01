@@ -9,3 +9,7 @@
 - cascading types;
 - fetch types;
 - join fetch queries.
+
+В процессе прохождения другого курса от другого преподавателя я узнала о возможностях встраиваемых
+классов (@Embeddable, @Embedded, @AttributeOverride). В этом репозитории проверила работу такого класса на 
+примере класса Student.
